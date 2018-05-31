@@ -1,4 +1,7 @@
 package step1;
+/**
+ * 가위바위보
+ * */
 import java.util.Scanner;
 public class RPSGame{
 	public static void main(String[] args){
