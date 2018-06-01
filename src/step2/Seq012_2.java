@@ -15,8 +15,6 @@ public class Seq012_2 {
 		int end = (num1 > num2) ? num1 : num2;
 		start = (start % 2 == 0) ? start : start++;
 		end = (end % 2 == 0) ? end : end--; 
-		
-		
 	}
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
