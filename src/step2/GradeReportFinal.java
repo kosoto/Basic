@@ -2,7 +2,7 @@ package step2;
 
 import java.util.Scanner;
 
-public class GradeReport개선중 {
+public class GradeReportFinal {
 	public static boolean input(int param) {
 		/*boolean flag = false;*/
 	/*	if(param>=0 && param<=100){
