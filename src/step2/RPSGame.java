@@ -1,42 +1,86 @@
 package step2;
+
 /**
  * 가위바위보
  * */
 import java.util.Scanner;
-public class RPSGame{
-	public static void main(String[] args){
-		Scanner scan = new Scanner(System.in);
-		while(true){
-			System.out.print("0.종료 1.실행");
-			switch(scan.nextInt()) {
-			case 0 : System.out.print("종료합니다."); return;
-			case 1 : 
-				System.out.println("player1 은 가위 바위 보 중에 하나를 내세요. ");
-				String player1 = scan.next();
-				int num1 = 0;
-				switch(player1){
-					case "가위" : num1 = 2; break;
-					case "바위" : num1 = 0; break;
-					case "보" : num1 = 5;
-				}
-				System.out.println("player2 는 가위 바위 보 중에 하나를 내세요. ");
-				String player2 = scan.next();
-				int num2 = 0;
-				switch(player2){
-					case "가위" : num2 = 2; break;
-					case "바위" : num2 = 0; break;
-					case "보" : num2 = 5;
-				String result = "";
-				int ref = num1 - num2;
-				switch(ref){
-					case 2 : case -5 : case 3 : result = "player2가 이겼습니다."; break;
-					case -3 : case -2 : case 5 : result = "player1이 이겼습니다."; break;
-					case 0 : result = "비겼습니다.";
-				}
-				System.out.print(result);
+//method 나누기 완료
+public class RPSGame {
+	public static boolean input(String finger) {
+
+		return (finger.equals("가위") || finger.equals("바위") || finger.equals("보"));
+	}
+
+	public static String ref(String[] parms) {
+		String result = "";
+		int ref = Integer.parseInt(parms[0]) - Integer.parseInt(parms[1]);
+		switch (ref) {
+		case 2:
+		case -5:
+		case 3:
+			result = "player2가 이겼습니다.";
 			break;
-			default : System.out.print("ERROR");
+		case -3:
+		case -2:
+		case 5:
+			result = "player1이 이겼습니다.";
+			break;
+		case 0:
+			result = "비겼습니다.";
+		default : break;
+		}
+		return result;
+
+	}
+
+	public static String[] num(String[] fingers) {
+		String[] parms = new String[2];
+		for (int i = 0; i <= 1; i++) {
+			switch (fingers[i]) {
+			case "가위":
+				parms[i] = "2";
+				break;
+			case "바위":
+				parms[i] = "0";
+				break;
+			case "보":
+				parms[i] = "5";
+				break;
+			}
+		}
+		return parms;
+
+	}
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		String temp = "";
+		String[] players = { "player1", "player2" };
+		String[] fingers = new String[2];
+		while (true) {
+			System.out.print("0.종료 1.실행");
+			switch (scan.next()) {
+			case "0":
+				System.out.print("종료합니다.");
+				return;
+			case "1":
+				for (int i = 0; i < players.length; i++) {
+					System.out.println(players[i] + "은(는) 가위 바위 보 중 하나를 선택하세요.");
+					temp = scan.next();
+					if (input(temp)) {
+						fingers[i] = temp;
+					} else {
+						i--;
+					}
 				}
+
+				String result = ref(num(fingers));
+
+				System.out.println(result);
+				break;
+			default:
+				System.out.println("ERROR");
+				return;
 			}
 		}
 	}
