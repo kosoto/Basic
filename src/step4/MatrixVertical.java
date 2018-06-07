@@ -10,9 +10,7 @@ public class MatrixVertical {
 			for (int j = 0; j < 5; j++) {
 				k++;
 				mtx[j][i] = k;
-
 			}
-
 		}
 		for (int i = 0; i < 5; i++) {
 

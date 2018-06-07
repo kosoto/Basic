@@ -1,6 +1,6 @@
 package step4;
 
-public class MatrixBasic {
+public class MatrixBasic3 {
 
 	public static void main(String[] args) {
 		int[][] mtx=new int[5][5];
@@ -8,7 +8,7 @@ public class MatrixBasic {
 		for(int i=0;i<5;i++) {
 			for(int j=0;j<5;j++) {
 				count++;
-				mtx[i][j]=count;
+				mtx[i][4-j]=count;
 			}
 		}
 		
@@ -18,5 +18,6 @@ public class MatrixBasic {
 			}
 			System.out.println();
 		}
+		
 	}
 }
