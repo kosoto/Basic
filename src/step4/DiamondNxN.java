@@ -1,6 +1,6 @@
 package step4;
 import java.util.Scanner;
-public class Diamond2NxN {
+public class DiamondNxN {
 //다이아몬드 홀수만..
 	
 	public static void main(String[] args) {
@@ -16,7 +16,7 @@ public class Diamond2NxN {
 					mtx[i][j] = count;
 				}	
 			}else {
-				for(int j=i-(n/2);j<=n+(n/2)-1-i;j++) {
+				for(int j=i-(n/2);j<=n+(n/2)-1-i;j++) {/// ???
 					count++;
 					mtx[i][j] = count;
 				}

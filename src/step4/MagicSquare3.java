@@ -1,19 +1,25 @@
 package step4;
 
-public class MagicSquare {
+public class MagicSquare3 {
 	public static void main(String[] args) {
-		int[][] mtx = new int[5][5];
 		String result = "";
-		int count=0,row=0,column=2;
-		for(int j =0;j<5;j++) {
+		int[][] mtx = new int[5][5];
+		int count = 0;
+		int row = 0;
+		int column = 2;
+		for(int k=0;k<5;k++) {
 			for(int i=0;i<5;i++) {
 				count++;
-				mtx[(row-i+50)%5][(column+i)%5]=count;
+				mtx[(row+25)%5][column%5]=count;
+				row--;
+				column++;
 			}
-			row-=3;
-			column +=4;	
+			row+=2;
+			column--;
+			
 		}
 		for (int i = 0; i < 5; i++) {
+
 			for (int j = 0; j < 5; j++) {
 				result += mtx[i][j]+"\t";
 			}
